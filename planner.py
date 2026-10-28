@@ -5,7 +5,11 @@ days = int(input("How many days? "))
 budget = int(input("What's your budget? "))
 interest = input("What are your interest?")
 
-prompt = f"""You are my travel planner.
+
+
+def plan_trip(destination, days, budget, interest):
+
+    prompt = f"""You are my travel planner.
 Destination: {destination}
 Days: {days}
 Budget: Rs {budget} total
@@ -30,7 +34,7 @@ Total: <Ruppee sign > <number>
 
 Output only the itinerary."""
 
-r = requests.post(
+    r = requests.post(
         "http://localhost:11434/api/generate",
         json={
             "model": "gemma4:e4b",
@@ -39,12 +43,12 @@ r = requests.post(
             }
         )
 
-text = r.json()["response"]
-print(text)
+    text = r.json()["response"]
+    print(text)
+    costs = re.findall(r"Rs\s*(\d+)", text)
+    print(costs)
 
-costs = re.findall(r"Rs\s*(\d+)", text)
-print(costs)
-
-numbers = [int(c) for c in costs]
-print(sum(numbers))
-
+    numbers = [int(c) for c in costs]
+    print(sum(numbers))
+    return text
+text = plan_trip("goa", 3, 15000, "beaches, seafood")
