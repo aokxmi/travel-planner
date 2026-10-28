@@ -21,8 +21,8 @@ It runs on your own computer. No account, no API key, nothing sent to the intern
 
 ```bash
 # 1. Get the code
-git clone <your-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/aokxmi/travel-planner.git
+cd travel-planner
 
 # 2. Python environment
 python -m venv .venv
