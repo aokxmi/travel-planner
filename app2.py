@@ -44,7 +44,7 @@ def plan_trip(destination, days, budget, interest):
     return r.json()["response"]
 
 
-# ---------- Python-side checks (the model never does the math) ----------
+# Price check
 def to_number(s):
     return int(s.replace(",", ""))
 
@@ -83,7 +83,7 @@ def parse_itinerary(text):
     return [d for d in days if d["items"]]
 
 
-# ---------- Web UI ----------
+# UI
 app = Flask(__name__)
 
 PAGE = """
