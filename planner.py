@@ -1,9 +1,9 @@
 import requests, time, re
 
-destination = "goa"
-days = 3
-budget = 15000
-interest = "beaches,sea food,party"
+destination = input("Where to? ")
+days = int(input("How many days? "))
+budget = int(input("What's your budget? "))
+interest = input("What are your interest?")
 
 prompt = f"""You are my travel planner.
 Destination: {destination}
@@ -26,7 +26,7 @@ Day 1
 - Stay: <place, area> (Rs <cost>)
 - Transport: <how> (Rs <cost>)
 
-Total: Rs <number>
+Total: <Ruppee sign > <number>
 
 Output only the itinerary."""
 
@@ -42,7 +42,7 @@ r = requests.post(
 text = r.json()["response"]
 print(text)
 
-costs = re.findall(r"Rs\s*(/d+)", text)
+costs = re.findall(r"Rs\s*(\d+)", text)
 print(costs)
 
 numbers = [int(c) for c in costs]
