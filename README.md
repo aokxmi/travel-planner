@@ -6,10 +6,10 @@ It runs on your own computer. No account, no API key, nothing sent to the intern
 
 ## How it works
 
-1. You fill in the form (or answer the questions in the terminal).
-2. The app sends your answers to **Gemma 4**, an open-weight model from Google, running locally through [Ollama](https://ollama.com).
+1. Input some answer.
+2. The app sends your answers to **Gemma 4**, open-weight model from Google, running locally through [Ollama](https://ollama.com).
 3. Gemma writes the itinerary: morning, afternoon and evening for each day, plus a place to stay and local transport.
-4. **Python adds up the costs itself**, because small language models are not reliable at maths. If the plan goes over your budget, the page tells you by how much. If the model's own total doesn't match the items, the page uses the items.
+4. **Python adds up the cost to make sure it fits your budget**, because small language models are not reliable at maths. If the plan goes over your budget, the page tells you by how much. If the model's own total doesn't match the items, the page uses the items.
 
 ## What you need
 
